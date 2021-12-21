@@ -1,0 +1,35 @@
+<div class="container new-note-content col-xs-12 ">
+    <div *ngIf="newNoteError" class="alert alert-danger col-md-5 col-sm-offset-2" role="alert">
+        {{newNoteError}}
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <form (ngSubmit)="onSubmit()" #newNoteForm="ngForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" class="form-control" name="title" ngModel required #title="ngModel">
+                    <span *ngIf="!title.valid && title.touched">Please enter a title</span>
+
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="textbox" id="description" class="form-control" name="description" ngModel required
+                        #description="ngModel">Enter your description</textarea>
+                    <span *ngIf="!description.valid && description.touched">Please enter a description</span>
+
+                </div>
+                <div class="form-group">
+                    <label for="noteImage">Image</label>
+                    <input (change)="onSelectFile($event)"type="file" id="noteImage" class="form-control" name="noteImage" ngModel required
+                        #noteImage="ngModel" />
+                    <span *ngIf="!noteImage.valid && noteImage.touched">Please add an image</span>
+
+                </div>
+
+                <button [disabled]="!newNoteForm.valid" class="btn btn-primary" type="submit">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

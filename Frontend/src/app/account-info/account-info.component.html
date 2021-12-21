@@ -1,0 +1,20 @@
+<div class="row">
+
+        <div *ngIf="error && !isFetching" class="alert alert-danger pull-left" role="alert">
+            {{error}}
+        </div>
+        <div *ngIf="isFetching">
+            <h4>Loading...</h4>
+        </div>
+        <div *ngIf="!isFetching && !error" class="card">
+            <img src=".././assets/profile-image.jpg" alt="John" style="width:50%;height:30%">
+            <h1>{{accountInformation.userName}}</h1>
+            <p class="title">{{accountInformation.fullName}}</p>
+            <p>{{accountInformation.email}}</p>
+            <p><button [routerLink]="['edit']">Edit</button></p>
+        </div>
+<div class="col-md-offset-2 col-md-7 edit-content">
+       <router-outlet></router-outlet>
+    </div>
+
+</div>

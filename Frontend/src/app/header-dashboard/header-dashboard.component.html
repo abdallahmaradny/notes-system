@@ -1,0 +1,29 @@
+<div class="row">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div class="col-md-3"id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a>
+                        Notes System
+                    </a>
+                </li>
+                <li>
+                    <a  [routerLink]="['account']">My Account</a>
+                </li>
+                <li>
+                    <a  [routerLink]="['myNotes']" [queryParams]="{sharable:0}">My Notes</a>
+                </li>
+                <li>
+                    <a  [routerLink]="['allNotes']" [queryParams]="{sharable:1}">All Notes</a>
+                </li>
+            </ul>
+            <button (click)="logOutClick()"class="btn btn-danger logout-button" >Logout</button>
+
+        </div>
+        <!-- /#sidebar-wrapper -->
+    </div>
+    <div class="col-xl-12 dashboard-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

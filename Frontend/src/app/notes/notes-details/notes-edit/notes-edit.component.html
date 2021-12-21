@@ -1,0 +1,28 @@
+<div class="container edit-content col-xs-12">
+        <div *ngIf="error" class="alert alert-danger col-md-5 col-sm-offset-2" role="alert">
+          {{error}}
+        </div> 
+        <div class="row">
+            <div class="col-xs-12">
+              <form (ngSubmit)="onSubmit()" #editNoteForm="ngForm">
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" class="form-control" name="title" ngModel required #title="ngModel">
+                    <span *ngIf="!title.valid && title.touched">Please enter a title</span>
+      
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="textbox" id="description" class="form-control" name="description" ngModel required  #description="ngModel">Enter your description</textarea>
+                    <span *ngIf="!description.valid && description.touched">Please enter a description</span>
+      
+                  </div>
+                  
+                <button [disabled]="!editNoteForm.valid" class="btn btn-primary" type="submit">Submit</button>
+              </form>
+             
+            </div>
+            
+          </div>
+        </div>
+      

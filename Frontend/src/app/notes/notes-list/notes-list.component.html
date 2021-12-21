@@ -1,0 +1,25 @@
+<div class="row">
+    <h1> NOTES</h1>
+    <div class="col-xs-12">
+        <button (click)="onAddNoteClick()"class="btn btn-success">Add Note</button>
+    </div>
+</div>
+<div class="row">
+    <div *ngIf="error" class="alert alert-danger col-xs-7" role="alert">
+        {{error}}
+    </div>
+
+
+    <div *ngIf="!error && sharable===1" class="col-xs-12">
+        <div *ngIf="allNotes?.length === 0" class="alert alert-info col-xs-7" role="alert">
+            No Notes Available
+        </div>
+        <app-notes-item *ngFor="let note of allNotes;let id=index" [id]="id" ></app-notes-item>
+    </div>
+    <div *ngIf="!error && sharable===0" class="col-xs-12">
+            <div *ngIf="userNotes?.length === 0" class="alert alert-info col-xs-7" role="alert">
+                    No Notes Available
+                </div>
+        <app-notes-item *ngFor="let note of userNotes;let id=index" [id]="id" ></app-notes-item>
+    </div>
+</div>

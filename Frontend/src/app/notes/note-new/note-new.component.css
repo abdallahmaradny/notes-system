@@ -1,0 +1,14 @@
+.new-note-content {
+  box-shadow: 0 4px 8px 0 rgba(0.2, 0, 0, 0.2);
+  margin-top: 10%;
+  border-width: 100px;
+  border-color: black;
+}
+
+input.ng-invalid.ng-touched {
+  border: red solid 2px;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: red solid 2px;
+}
